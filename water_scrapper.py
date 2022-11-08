@@ -64,7 +64,8 @@ except selenium.common.TimeoutException:
     driver.close()
     exit()
 
-# Забираем цену за две бутылки
+# Чекаем рекламу и забираем цену за две бутылки
+try_to_prevent_ad(driver)
 two_bottles_lw = get_price_lw(BeautifulSoup(driver.page_source, 'lxml'))
 # Закрываем рекламу, уменьшаем кол-во бутылок и забираем цену за одну бутылку
 try_to_prevent_ad(driver)
